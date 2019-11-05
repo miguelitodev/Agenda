@@ -1,0 +1,66 @@
+<ion-content>
+
+	<!-- Criando os botões e dando suas funções -->
+	<ion-item>
+
+		<ion-button (click)="createDB()">Criar Agenda</ion-button>
+		 
+		<ion-button (click)="createTable()">Criar componentes</ion-button>
+		 
+		<ion-button (click)="getRows()">Mostrar</ion-button>
+
+	</ion-item>
+
+	<!--  Local que vai receber o a sua linha da tabela -->
+	<div>
+		<ion-item>
+			<ion-input placeholder="Nome" [(ngModel)]="name_model"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-input placeholder="Email" [(ngModel)]="email_model"></ion-input>     
+		</ion-item>
+		<ion-item>
+			<ion-input placeholder="Telefone" [(ngModel)]="telefone_model"></ion-input>     
+		</ion-item>
+		<ion-item>
+			<ion-input placeholder="Celular" [(ngModel)]="celular_model"></ion-input>     
+		</ion-item>
+		<ion-button expand="full" (click)="insertRow()" color="success">Enviar</ion-button>
+
+	</div>
+	 
+	<!-- Aqui vai criar uma tabela com linhas se colunas -->
+	<ion-grid>
+
+		<!-- Criando a linha com o titulo das colunas -->
+		<ion-row>
+
+			<ion-col>Name</ion-col>
+			<ion-col>Email</ion-col>
+			<ion-col>Telefone</ion-col>
+			<ion-col>Celular</ion-col>
+			<ion-col>Delete</ion-col>
+
+		</ion-row>
+
+		<!-- Exibindo os dados nas colunas referentes aos dados salvos -->
+		<ion-row *ngFor="let item of row_data">
+
+			<!-- Apresentação dos dados salvos -->
+			<ion-col>{{item.Nome}}</ion-col>
+			<ion-col>{{item.Email}}</ion-col>
+			<ion-col>{{item.Telefone}}</ion-col>
+			<ion-col>{{item.Celular}}</ion-col>
+			<ion-col>
+
+				<!-- Botao para apagar a linha -->
+				     <ion-button (click)="deleteRow(item)" size="small" color="danger">
+					          <ion-icon name="trash"></ion-icon>
+					    </ion-button>
+			</ion-col>
+
+		</ion-row>
+
+	</ion-grid>
+
+</ion-content>

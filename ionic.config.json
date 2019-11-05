@@ -1,0 +1,7 @@
+{
+  "name": "Agenda",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
